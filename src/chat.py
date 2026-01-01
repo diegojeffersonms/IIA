@@ -8,8 +8,8 @@ from datetime import datetime
 # ==============================
 
 # Modelos
-TEXT_MODEL = "phi:latest" #meio burro             # rápido para conversa só texto (podes trocar por 'phi3' etc.)
-IMAGE_MODEL = "assistenteIntDesigner"  # multimodal (modelo baseado em qwen3-vl criado via ollama create)
+TEXT_MODEL = "llama3.2:latest"             # rápido para conversa só texto (podes trocar por 'phi3' etc.)
+IMAGE_MODEL = "interiorDesignAssistant2:latest"  # multimodal (modelo baseado em qwen3-vl criado via ollama create)
 
 # Ficheiro de histórico
 HISTORY_FILE = "chat_history.json"
@@ -103,7 +103,8 @@ def main():
 
         user_message = {
             "role": "user",
-            "content": user_input
+            "content": user_input,
+            "time": datetime.now().isoformat()
         }
 
         if img_path:
@@ -114,11 +115,11 @@ def main():
 
         messages.append(user_message)
 
-        model = choose_model(has_image=bool(img_path))
-        last_model = model
+        current_model = choose_model(has_image=bool(img_path))
+        last_model = current_model
 
         response = chat(
-            model=model,
+            model=current_model,
             messages=messages
         )
 
@@ -126,7 +127,9 @@ def main():
         print(f"\nIA:\n{reply}\n")
         messages.append({
             "role": "assistant",
-            "content": reply
+            "content": reply,
+            "time": datetime.now().isoformat(),
+            "model_used": current_model
         })
 
     save_history(last_model_used=last_model, messages=messages)
