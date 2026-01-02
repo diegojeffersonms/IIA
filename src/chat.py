@@ -8,7 +8,7 @@ from datetime import datetime
 # ==============================
 
 # Modelos
-TEXT_MODEL = "llama3.2:latest"             # rápido para conversa só texto (podes trocar por 'phi3' etc.)
+TEXT_MODEL = "interior-text:latest"             # rápido para conversa só texto (podes trocar por 'phi3' etc.)
 IMAGE_MODEL = "interiorDesignAssistant2:latest"  # multimodal (modelo baseado em qwen3-vl criado via ollama create)
 
 # Ficheiro de histórico
