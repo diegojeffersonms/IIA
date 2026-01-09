@@ -1,4 +1,4 @@
-FROM llama3.2:latest 
+FROM llama3.2:latest
 
 PARAMETER num_ctx 32500
 PARAMETER temperature 0.6

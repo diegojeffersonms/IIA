@@ -1,0 +1,23 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    entrypoint: /bin/sh -c "ollama serve & sleep 5 && ollama pull llama3 && ollama pull llava && wait"
+
+  app:
+    build: .
+    container_name: design-assistant-app
+    ports:
+      - "8080:8888"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+volumes:
+  ollama:
