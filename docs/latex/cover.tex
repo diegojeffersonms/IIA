@@ -5,20 +5,21 @@
 % COLORED BAR ON THE LEFT SIDE
 %==========================================================================
 
-\backgroundsetup{
-    scale=1, 
-    angle=0, 
-    opacity=1,
-    contents={
-        \begin{tikzpicture}[remember picture,overlay]
-            \path [fill=titlepagecolor] 
-                (current page.north west) -- ($(current page.north west) + (5,0)$)
-                -- ($(current page.south west) + (5,0)$)-- (current page.south west); 
-            \node[color=white] at ($(current page.south west) + (3,4)$) {\bfseries {\fontsize{120}{60} \textsf{LI}}};
-            \node[color=titlepagecolor] at ($(current page.south west) + (5.8,4)$) {\bfseries {\fontsize{120}{60} \textsf{4}}};
-        \end{tikzpicture}
-    }
-}
+\backgroundsetup{contents={}}
+%\backgroundsetup{
+%    scale=1, 
+%    angle=0, 
+%    opacity=1,
+%    contents={
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \path [fill=titlepagecolor] 
+%                (current page.north west) -- ($(current page.north west) + (5,0)$)
+%                -- ($(current page.south west) + (5,0)$)-- (current page.south west); 
+%            \node[color=white] at ($(current page.south west) + (3,4)$) {\bfseries %{\fontsize{120}{60} \textsf{LI}}};
+%            \node[color=titlepagecolor] at ($(current page.south west) + (5.8,4)$) {\bfseries {\fontsize{120}{60} \textsf{4}}};
+%        \end{tikzpicture}
+%    }
+%}
 
 %==========================================================================
 % TITLE PAGE INFO
@@ -66,7 +67,7 @@
 %% UC
 \newcommand{\UC}{
     \begin{flushleft}
-        \par\textcolor{titlepagecolor}{  \LARGE\textbf{\textsf{Unidade Curricular de \\ Laboratórios de Informática IV}}}
+        \par\textcolor{titlepagecolor}{  \LARGE\textbf{\textsf{Unidade Curricular de \\ Introdução à Inteligência Artificial}}}
     \end{flushleft}
 }
 
